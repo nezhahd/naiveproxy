@@ -2,7 +2,8 @@
 naygV="22.11.5 V 1.0"
 remoteV=`wget -qO- https://gitlab.com/rwkgyg/naiveproxy-yg/raw/main/naiveproxy.sh | sed  -n 2p | cut -d '"' -f 2`
 chmod +x /root/naiveproxy.sh
-vsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'`
+lastvsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'`
+ygvsion='v107.0.5304.87-1'
 red='\033[0;31m'
 bblue='\033[0;34m'
 plain='\033[0m'
@@ -152,7 +153,7 @@ mv caddy /usr/bin/
 
 inscaddynaive(){
 green "请选项安装naiveproxy方式:"
-readp "1. 直接使用已编译好的caddy2-naiveproxy版本（无脑快速，回车默认）\n2. 自动编译最新caddy2-naiveproxy版本（存在编译失败可能）\n请选择：" chcaddynaive
+readp "1. 使用已编译好的caddy2-naiveproxy版本，当前最新版本号：$ygvsion（快速安装，回车默认）\n2. 自动编译最新caddy2-naiveproxy版本，当前最新版本号：$lastvsion（存在编译失败可能）\n请选择：" chcaddynaive
 if [ -z "$chcaddynaive" ] || [ $chcaddynaive == "1" ]; then
 insupdate
 cd /root
