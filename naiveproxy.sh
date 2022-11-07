@@ -564,9 +564,9 @@ green "  0. 退出脚本"
 red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 if [ "${naygV}" = "${remoteV}" ]; then
-echo -e "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain} ，已是最新版本\n"
+echo -e "\n当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain} ，已是最新版本\n"
 else
-echo -e "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain}"
+echo -e "\n当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain}"
 echo -e "检测到最新naiveproxy-yg安装脚本版本号：${yellow}${remoteV}${plain} ，可选择5进行更新\n"
 fi
 if [ "$ygvsion" = "$lastvsion" ]; then
