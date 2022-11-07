@@ -570,9 +570,9 @@ echo -e "\n当前 naiveproxy-yg 安装脚本版本号：${bblue}${naygV}${plain}
 echo -e "检测到最新 naiveproxy-yg 安装脚本版本号：${yellow}${remoteV}${plain} ，可选择5进行更新\n"
 fi
 if [ "$ygvsion" = "$lastvsion" ]; then
-echo -e "当前已安装 naiveproxy 内核版本号：${bblue}${ygvsion}${plain} ，已是官方最新版本\n"
+echo -e "当前 naiveproxy 已安装内核版本号：${bblue}${ygvsion}${plain} ，已是官方最新版本\n"
 else
-echo -e "当前已安装 naiveproxy 内核版本号：${bblue}${ygvsion}${plain}"
+echo -e "当前 naiveproxy 已安装内核版本号：${bblue}${ygvsion}${plain}"
 echo -e "检测到最新 naiveproxy 内核版本号：${yellow}${lastvsion}${plain} ，可选择6进行更新\n"
 fi
 fi
