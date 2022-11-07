@@ -563,16 +563,16 @@ green "  0. 退出脚本"
 red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 if [ "${naygV}" = "${remoteV}" ]; then
-green "当前naiveproxy-yg安装脚本版本号：${naygV} ，已是最新版本\n"
+green "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain} ，已是最新版本\n"
 else
-green "当前naiveproxy-yg安装脚本版本号：${naygV}"
-yellow "检测到最新naiveproxy-yg安装脚本版本号：${remoteV} ，可选择5进行更新\n"
+green "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain}"
+yellow "检测到最新naiveproxy-yg安装脚本版本号：${bblue}${remoteV}${plain} ，可选择5进行更新\n"
 fi
 if [ "$ygvsion" = "$lastvsion" ]; then
-green "当前已安装naiveproxy内核版本号：$ygvsion ，已是官方最新版本\n"
+green "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain} ，已是官方最新版本\n"
 else
-green "当前已安装naiveproxy内核版本号：$ygvsion"
-yellow "检测到最新naiveproxy内核版本号：$lastvsion ，可选择6进行更新\n"
+green "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain}"
+yellow "检测到最新naiveproxy内核版本号：${bblue}${lastvsion}${plain} ，可选择6进行更新\n"
 fi
 fi
 white "VPS系统信息如下："
