@@ -589,6 +589,6 @@ esac
 if [ $# == 0 ]; then
 start
 lastvsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'`
-ygvsion=`cat /etc/caddy/version 2>/dev/null`
+ygvsion=`cat /etc/caddy/version`
 start_menu
 fi
