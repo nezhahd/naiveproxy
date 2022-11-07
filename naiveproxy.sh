@@ -177,7 +177,7 @@ apt install golang-go && forwardproxy
 fi
 cd
 rest
-lastvsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'
+lastvsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'`
 echo $lastvsion > /root/version
 else 
 red "输入错误，请重新选择" && inscaddynaive
@@ -425,6 +425,7 @@ insport
 sed -i "s/$oldport1/$port/g" /etc/caddy/Caddyfile /root/naive/v2rayn.json /root/naive/URL.txt
 sussnaiveproxy
 }
+
 acme(){
 bash <(curl -L -s https://gitlab.com/rwkgyg/acme-script/raw/main/acme.sh)
 }
@@ -434,6 +435,7 @@ wget -N --no-check-certificate https://gitlab.com/rwkgyg/cfwarp/raw/main/CFwarp.
 bbr(){
 bash <(curl -L -s https://raw.githubusercontent.com/teddysun/across/master/bbr.sh)
 }
+
 naiveproxystatus(){
 wgcfv6=$(curl -s6m5 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2) 
 wgcfv4=$(curl -s4m5 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
@@ -447,6 +449,7 @@ else
 status=$(white "naiveproxy状态：\c";red "未安装";white "WARP状态：      \c";eval echo \$wgcf)
 fi
 }
+
 upnayg(){
 if [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && ! -f '/etc/caddy/Caddyfile' ]]; then
 red "未正常安装naiveproxy" && exit
@@ -456,6 +459,7 @@ chmod +x /root/naiveproxy.sh
 ln -sf /root/naiveproxy.sh /usr/bin/na
 green "naiveproxy-yg安装脚本升级成功" && na
 }
+
 upnaive(){
 if [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && ! -f '/etc/caddy/Caddyfile' ]]; then
 red "未正常安装naiveproxy" && exit
@@ -465,6 +469,7 @@ inscaddynaive
 systemctl restart caddy
 green "naiveproxy内核版本升级成功" && na
 }
+
 unins(){
 systemctl stop caddy >/dev/null 2>&1
 systemctl disable caddy >/dev/null 2>&1
@@ -472,6 +477,7 @@ rm -f /etc/systemd/system/caddy.service
 rm -rf /usr/bin/caddy /etc/caddy /root/naive /root/naiveproxy.sh /usr/bin/na
 green "naiveproxy卸载完成！"
 }
+
 sussnaiveproxy(){
 systemctl restart caddy
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
@@ -480,6 +486,7 @@ else
 red "naiveproxy服务启动失败，请运行systemctl status caddy查看服务状态并反馈，脚本退出" && exit
 fi
 }
+
 naiveproxyshare(){
 if [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && ! -f '/etc/caddy/Caddyfile' ]]; then
 red "未正常安装naiveproxy" && exit
@@ -495,6 +502,7 @@ yellow "$(cat /root/naive/URL.txt)\n" && sleep 2
 green "当前naiveproxy节点二维码分享链接如下(SagerNet / Matsuri)"
 qrencode -o - -t ANSIUTF8 "$(cat /root/naive/URL.txt)"
 }
+
 insna(){
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 green "已安装naiveproxy，重装请先执行卸载功能" && exit
@@ -589,6 +597,6 @@ esac
 if [ $# == 0 ]; then
 start
 lastvsion=`curl -s "https://api.github.com/repos/klzgrad/naiveproxy/releases/latest" | grep linux-x64 | grep browser_download_url | cut -d : -f 2,3 | tr -d \" | sed -n 1p | cut -f8 -d '/'`
-ygvsion=`cat /etc/caddy/version`
+ygvsion=`cat /etc/caddy/version 2>/dev/null`
 start_menu
 fi
