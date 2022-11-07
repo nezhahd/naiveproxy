@@ -3,6 +3,7 @@ naygV="22.11.7 V 1.6"
 remoteV=`wget -qO- https://gitlab.com/rwkgyg/naiveproxy-yg/raw/main/naiveproxy.sh | sed  -n 2p | cut -d '"' -f 2`
 chmod +x /root/naiveproxy.sh
 red='\033[0;31m'
+yellow='\033[0;33m'
 bblue='\033[0;34m'
 plain='\033[0m'
 blue(){ echo -e "\033[36m\033[01m$1\033[0m";}
@@ -563,16 +564,16 @@ green "  0. 退出脚本"
 red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 if [ "${naygV}" = "${remoteV}" ]; then
-green "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain} ，已是最新版本\n"
+echo "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain} ，已是最新版本\n"
 else
-green "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain}"
-yellow "检测到最新naiveproxy-yg安装脚本版本号：${bblue}${remoteV}${plain} ，可选择5进行更新\n"
+echo "当前naiveproxy-yg安装脚本版本号：${bblue}${naygV}${plain}"
+echo "检测到最新naiveproxy-yg安装脚本版本号：${yellow}${remoteV}${plain} ，可选择5进行更新\n"
 fi
 if [ "$ygvsion" = "$lastvsion" ]; then
-green "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain} ，已是官方最新版本\n"
+echo "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain} ，已是官方最新版本\n"
 else
-green "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain}"
-yellow "检测到最新naiveproxy内核版本号：${bblue}${lastvsion}${plain} ，可选择6进行更新\n"
+echo "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain}"
+echo "检测到最新naiveproxy内核版本号：${yellow}${lastvsion}${plain} ，可选择6进行更新\n"
 fi
 fi
 white "VPS系统信息如下："
