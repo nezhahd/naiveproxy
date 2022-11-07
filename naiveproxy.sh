@@ -576,6 +576,7 @@ echo -e "当前已安装naiveproxy内核版本号：${bblue}${ygvsion}${plain}"
 echo -e "检测到最新naiveproxy内核版本号：${yellow}${lastvsion}${plain} ，可选择6进行更新\n"
 fi
 fi
+red "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 white "VPS系统信息如下："
 white "操作系统：      $(blue "$op")" && white "内核版本：      $(blue "$version")" && white "CPU架构：       $(blue "$cpu")" && white "虚拟化类型：    $(blue "$vi")" && white "TCP加速算法：   $(blue "$bbr")"
 white "$status"
