@@ -443,7 +443,7 @@ wgcfv4=$(curl -s4m5 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cu
 naiveports=`cat /etc/caddy/Caddyfile 2>/dev/null | awk '{print $1}' | grep : | tr -d ',:' | tr '\n' ' '`
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 status=$(white "naiveproxy状态：\c";green "运行中    \c";white "可代理端口：\c";green "$naiveports";white "WARP状态：      \c";eval echo \$wgcf)
-elif [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/hysteria/config.json' ]]; then
+elif [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 status=$(white "naiveproxy状态：\c";yellow "未启动,可尝试选择4，开启或者重启naiveproxy";white "WARP状态：      \c";eval echo \$wgcf)
 else
 status=$(white "naiveproxy状态：\c";red "未安装";white "WARP状态：      \c";eval echo \$wgcf)
