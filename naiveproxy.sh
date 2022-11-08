@@ -265,6 +265,9 @@ insconfig(){
 readp "设置caddy2-naiveproxy监听端口[1-65535]（回车跳过为2000-65535之间的随机端口）：" caddyport
 if [[ -z $caddyport ]]; then
 caddyport=$(shuf -i 2000-65535 -n 1)
+if [[ $caddyport == $port ]]; then
+yellow "\n端口被占用，请重新输入端口" && readp "自定义caddy2-naiveproxy监听端口:" caddyport
+fi
 until [[ -z $(ss -ntlp | awk '{print $4}' | grep -w "$caddyport") ]]
 do
 [[ -n $(ss -ntlp | awk '{print $4}' | grep -w "$caddyport") ]] && yellow "\n端口被占用，请重新输入端口" && readp "自定义caddy2-naiveproxy监听端口:" caddyport
