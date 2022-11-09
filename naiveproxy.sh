@@ -195,7 +195,6 @@ if [ -z "${certacme}" ] || [ $certacme == "1" ]; then
 ym=$(cat /root/ygkkkca/ca.log)
 blue "检测到的域名：$ym ，已直接引用\n"
 elif [ $certacme == "2" ]; then
-[[ -z $(/root/.acme.sh/acme.sh -v 2>/dev/null) ]] && yellow "未安装acme.sh证书申请，无法执行" && exit 
 curl https://get.acme.sh | sh
 bash /root/.acme.sh/acme.sh --uninstall
 rm -rf /root/ygkkkca
