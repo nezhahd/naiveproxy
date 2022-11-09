@@ -92,7 +92,6 @@ fi
 fi
 [[ $(type -P yum) ]] && yumapt='yum -y' || yumapt='apt -y'
 [[ $(type -P curl) ]] || (yellow "检测到curl未安装，升级安装中" && $yumapt update;$yumapt install curl)
-[[ $(type -P lsof) ]] || (yellow "检测到lsof未安装，升级安装中" && $yumapt update;$yumapt install lsof)
 [[ ! $(type -P qrencode) ]] && ($yumapt update;$yumapt install qrencode)
 if [[ -z $(grep 'DiG 9' /etc/hosts) ]]; then
 v4=$(curl -s4m5 https://ip.gs -k)
