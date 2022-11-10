@@ -318,7 +318,7 @@ Group=root
 ExecStart=/usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile
 TimeoutStopSec=5s
-PrivateTmp=true
+PrivateTmp=false
 ProtectHome=false
 ProtectSystem=false
 [Install]
