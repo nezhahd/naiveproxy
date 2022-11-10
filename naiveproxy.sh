@@ -319,7 +319,8 @@ ExecStart=/usr/bin/caddy run --environ --config /etc/caddy/Caddyfile
 ExecReload=/usr/bin/caddy reload --config /etc/caddy/Caddyfile
 TimeoutStopSec=5s
 PrivateTmp=true
-ProtectSystem=full
+ProtectHome=false
+ProtectSystem=false
 [Install]
 WantedBy=multi-user.target
 EOF
