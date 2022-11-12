@@ -176,6 +176,10 @@ cd
 rest
 lastvsion=v`curl -Ls https://data.jsdelivr.com/v1/package/gh/klzgrad/naiveproxy | sed -n 4p | tr -d ',"' | awk '{print $1}'`
 echo $lastvsion > /root/version
+if [[ ! -d /etc/caddy/ ]]; then
+mkdir /etc/caddy
+fi
+mv version /etc/caddy/
 else 
 red "输入错误，请重新选择" && inscaddynaive
 fi
@@ -276,8 +280,6 @@ fi
 blue "已确认端口：$caddyport\n"
 green "设置naiveproxy的配置文件、服务进程……\n"
 mkdir -p /root/naive
-mkdir -p /etc/caddy
-mv version /etc/caddy/
 cat << EOF >/etc/caddy/Caddyfile
 {
 http_port $caddyport
