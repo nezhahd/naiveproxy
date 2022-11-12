@@ -467,7 +467,7 @@ upnaive(){
 if [[ -z $(systemctl status caddy 2>/dev/null | grep -w active) && ! -f '/etc/caddy/Caddyfile' ]]; then
 red "未正常安装naiveproxy" && exit
 fi
-yellow "升级naiveproxy内核版本\n"
+green "\n升级naiveproxy内核版本\n"
 inscaddynaive
 systemctl restart caddy
 green "naiveproxy内核版本升级成功" && na
