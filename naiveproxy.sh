@@ -1,5 +1,5 @@
 #!/bin/bash
-naygV="22.11.7 V 1.6"
+naygV="22.11.12 V 1.8"
 remoteV=`wget -qO- https://gitlab.com/rwkgyg/naiveproxy-yg/raw/main/naiveproxy.sh | sed  -n 2p | cut -d '"' -f 2`
 chmod +x /root/naiveproxy.sh
 red='\033[0;31m'
