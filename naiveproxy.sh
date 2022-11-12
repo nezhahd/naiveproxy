@@ -279,7 +279,8 @@ done
 fi
 blue "已确认端口：$caddyport\n"
 green "设置naiveproxy的配置文件、服务进程……\n"
-mkdir -p /root/naive
+mkdir /root/naive
+mkdir /etc/caddy
 cat << EOF >/etc/caddy/Caddyfile
 {
 http_port $caddyport
