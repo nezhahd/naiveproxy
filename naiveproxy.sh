@@ -119,8 +119,6 @@ fi
 }
 
 insupdate(){
-rm -f /etc/systemd/system/caddy.service
-rm -rf /usr/bin/caddy /etc/caddy /root/naive /usr/bin/na
 if [[ $release = Centos ]]; then
 if [[ ${vsid} =~ 8 ]]; then
 cd /etc/yum.repos.d/ && mkdir backup && mv *repo backup/ 
@@ -510,6 +508,8 @@ insna(){
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 green "已安装naiveproxy，重装请先执行卸载功能" && exit
 fi
+rm -f /etc/systemd/system/caddy.service
+rm -rf /usr/bin/caddy /etc/caddy /root/naive /usr/bin/na
 inscaddynaive ; inscertificate ; insport ; insuser ; inspswd ; insconfig
 if [[ -n $(systemctl status caddy 2>/dev/null | grep -w active) && -f '/etc/caddy/Caddyfile' ]]; then
 green "naiveproxy服务启动成功"
