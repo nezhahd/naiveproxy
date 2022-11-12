@@ -174,7 +174,7 @@ apt install golang-go && forwardproxy
 fi
 cd
 rest
-lastvsion=v`curl -Ls https://api.github.com/repos/klzgrad/naiveproxy/releases/latest  | grep "tag_name" | head -n 1 | cut -d : -f2 | sed 's/[ \"v,]//g'`
+lastvsion=v`curl -Ls https://data.jsdelivr.com/v1/package/gh/klzgrad/naiveproxy | sed -n 4p | tr -d ',"' | awk '{print $1}'`
 echo $lastvsion > /root/version
 else 
 red "输入错误，请重新选择" && inscaddynaive
@@ -600,7 +600,7 @@ esac
 }
 if [ $# == 0 ]; then
 start
-lastvsion=v`curl -Ls https://api.github.com/repos/klzgrad/naiveproxy/releases/latest  | grep "tag_name" | head -n 1 | cut -d : -f2 | sed 's/[ \"v,]//g'`
+lastvsion=v`curl -Ls https://data.jsdelivr.com/v1/package/gh/klzgrad/naiveproxy | sed -n 4p | tr -d ',"' | awk '{print $1}'`
 ygvsion=`cat /etc/caddy/version 2>/dev/null`
 start_menu
 fi
