@@ -149,7 +149,7 @@ mv caddy /usr/bin/
 inscaddynaive(){
 naygvsion=`curl -s "https://gitlab.com/rwkgyg/naiveproxy-yg/raw/main/version"`
 green "请选择安装或者更新 naiveproxy 内核方式:"
-readp "1. 使用已编译好的 caddy2-naiveproxy 版本，当前脚本已更新到最新版本号： $naygvsion （快速安装，回车默认）\n2. 自动编译最新 caddy2-naiveproxy 版本，当前官方最新版本号： $lastvsion （存在编译失败可能）\n请选择：" chcaddynaive
+readp "1. 使用已编译好的 caddy2-naiveproxy 版本，当前已编译到最新版本号： $naygvsion （快速安装，回车默认）\n2. 自动编译最新 caddy2-naiveproxy 版本，当前官方最新版本号： $lastvsion （存在编译失败可能）\n请选择：" chcaddynaive
 if [ -z "$chcaddynaive" ] || [ $chcaddynaive == "1" ]; then
 insupdate
 cd /root
