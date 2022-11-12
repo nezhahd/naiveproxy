@@ -176,14 +176,18 @@ cd
 rest
 lastvsion=v`curl -Ls https://data.jsdelivr.com/v1/package/gh/klzgrad/naiveproxy | sed -n 4p | tr -d ',"' | awk '{print $1}'`
 echo $lastvsion > /root/version
+else 
+red "输入错误，请重新选择" && inscaddynaive
+fi
+version(){
 if [[ ! -d /etc/caddy/ ]]; then
 mkdir /etc/caddy
 fi
 mv version /etc/caddy/
-else 
-red "输入错误，请重新选择" && inscaddynaive
-fi
 }
+version
+}
+
 inscertificate(){
 green "naiveproxy协议证书申请方式选择如下:"
 readp "1. acme一键申请证书脚本（支持常规80端口模式与dns api模式），已用此脚本申请的证书则自动识别（回车默认）\n2. 自定义证书路径（非/root/ygkkkca路径）\n请选择：" certificate
