@@ -600,7 +600,7 @@ esac
 }
 if [ $# == 0 ]; then
 start
-lastvsion=`curl -Ls https://api.github.com/repos/klzgrad/naiveproxy/releases/latest  | grep "tag_name" | head -n 1 | cut -d : -f2 | sed 's/[ \"v,]//g'`
+lastvsion=v`curl -Ls https://api.github.com/repos/klzgrad/naiveproxy/releases/latest  | grep "tag_name" | head -n 1 | cut -d : -f2 | sed 's/[ \"v,]//g'`
 ygvsion=`cat /etc/caddy/version 2>/dev/null`
 start_menu
 fi
