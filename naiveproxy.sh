@@ -181,7 +181,7 @@ red "输入错误，请重新选择" && inscaddynaive
 fi
 version(){
 if [[ ! -d /etc/caddy/ ]]; then
-mkdir /etc/caddy
+mkdir /etc/caddy >/dev/null 2>&1
 fi
 mv version /etc/caddy/
 }
@@ -283,8 +283,8 @@ done
 fi
 blue "已确认端口：$caddyport\n"
 green "设置naiveproxy的配置文件、服务进程……\n"
-mkdir /root/naive
-mkdir /etc/caddy
+mkdir /root/naive >/dev/null 2>&1
+mkdir /etc/caddy >/dev/null 2>&1
 cat << EOF >/etc/caddy/Caddyfile
 {
 http_port $caddyport
