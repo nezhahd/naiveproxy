@@ -283,7 +283,7 @@ blue "已确认密码：${pswd}\n"
 }
 
 insweb(){
-readp "设置naiveproxy伪装网址，（回车跳过默认为 甬哥博客地址：ygkkk.blogspot.com ）：" web
+readp "设置naiveproxy伪装网址，注意：不要带https（不懂的话，直接回车跳过，默认为 甬哥博客地址：ygkkk.blogspot.com ）：" web
 if [[ -z ${web} ]]; then
 naweb=ygkkk.blogspot.com
 else
